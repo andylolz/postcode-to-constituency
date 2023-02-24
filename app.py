@@ -49,7 +49,7 @@ if __name__ == "__main__":
     with open(args.input_filename) as f:
         reader = csv.DictReader(f)
         for x in reader:
-            postcode = x["postcode"].replace(" ", "")
+            postcode = x["postcode"].replace(" ", "").upper()
             constituency = postcode_lookup.get(postcode)
             if not constituency:
                 print("Postcode not found: {}".format(x["postcode"]))
